@@ -3,7 +3,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import { handleError } from "../handlers/error.handler";
 import { handleResponse } from "../handlers/response.handler";
-import userRoutes from "./routes/user.routes"
+import userRoutes from "./routes/user.routes";
+import repoRoutes from "./routes/repo.routes";
 
 const app = express();
 const allowedOrigins = ["http://localhost:3000"];
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1", userRoutes );
+app.use("/api/v1", repoRoutes )
 
 app.use(handleResponse);
 app.use(handleError);
