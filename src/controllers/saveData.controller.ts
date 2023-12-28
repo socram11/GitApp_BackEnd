@@ -13,7 +13,7 @@ export const saveGitHubData = async (req: Request, res: Response) => {
     if (dataType === 'user') { 
       newEntity = new User(githubData);
     } else if (dataType === 'repo') {
-      newEntity = new Repo(githubData);
+      newEntity = new Repo(githubData); 
     } else {
       throw new Error('Invalid data type'); 
     }

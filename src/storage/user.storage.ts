@@ -1,5 +1,5 @@
 import { IUser } from "../models/user.interface";
-import { User } from "../schemas/user.schema";
+import  User  from "../schemas/user.schema";
 import { ErrorHandler } from "../handlers/error.handler";
 
 export const createUserStorage = async (user: IUser) =>{
@@ -10,7 +10,7 @@ export const createUserStorage = async (user: IUser) =>{
     } catch (err) {
         throw new ErrorHandler(500, "Error al crear el Usuario")
     }
-}
+} 
 
 
 export const getUsersStorage = async (filter:any) =>{

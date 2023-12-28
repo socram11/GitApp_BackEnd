@@ -7,6 +7,8 @@ import mongooseOptions from "../index";
 import User from "../schemas/user.schema";
 import Repo from "../schemas/repo.schema";
 import saveDataRoutes from './routes/saveData.routes'; 
+import userroutes from './routes/user.routes'; 
+import repoRoutes from './routes/repo.routes'; 
 
 const app = express();
 const allowedOrigins = ["http://localhost:3000"];
@@ -15,14 +17,13 @@ const options: cors.CorsOptions = {
   origin: allowedOrigins,
 };
 
-app.use(cors());
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors(options));
 
+
+app.use('/api', saveDataRoutes); 
+app.use('/api', userroutes); 
+app.use('/api', repoRoutes); 
 app.use(handleResponse);
 app.use(handleError);
-app.use('/api', saveDataRoutes); 
-
 export default app;

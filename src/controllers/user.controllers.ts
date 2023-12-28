@@ -11,9 +11,11 @@ export const getUsers = async (
     _res: Response,
     next: NextFunction
     ) => {
-
+        console.log("hola");
     const query = req.query;    
     const users = await getUsersService(query);
+    console.log(users);
+
     if(users instanceof ErrorHandler){
         next(users);
     }
