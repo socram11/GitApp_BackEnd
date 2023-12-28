@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { checkSchema, validationResult } from "express-validator";
 import { ErrorHandler } from "../handlers/error.handler";
 
-export const createUserMiddleware = async (
+export const createRepoMiddleware = async (
     req: Request,
     _res: Response,
     next: NextFunction
@@ -40,12 +40,12 @@ export const createUserMiddleware = async (
         },
         collaborators_url:{
             in:["body"],
-            isNumeric: true,
+            isString: true,
             errorMessage: "Campo de colaboradores es requerido"
         },
-        lanuages_url:{
+        languages_url:{
             in:["body"],
-            isNumeric: true,
+            isString: true,
             errorMessage: "Los lenguajes son requeridos"
         },
         
